@@ -1,0 +1,13 @@
+
+递归问题看这位大佬的博客https://lyl0724.github.io/2020/01/25/1/
+另一种简单的解法
+ ListNode *L=new ListNode(0,head);
+        ListNode *temp =L;
+        while(temp->next!==nullptr && temp->next->next!=nullptr){
+        ListNode *n1=temp->next;
+        ListNode *n2=temp->next->next;
+        temp->next=n1->next;//n2
+        n1->next=n2->next;//画个图就很快解决了
+        n2->next=n1;
+        temp =n1;    //n1是换到后面去了不要弄成n2了
+        
