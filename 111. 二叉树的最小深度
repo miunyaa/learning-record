@@ -1,0 +1,22 @@
+DFS
+跟104. 二叉树的最大深度放一起
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        if(root==nullptr) return 0;
+           return max(maxDepth(root->left),maxDepth(root->right))+1;
+    }
+};
+跟最大深度不同的是这题节点它的左右子节点都是null才结束
+class Solution {
+public:
+    int minDepth(TreeNode* root) {
+        if(root==nullptr) return 0;
+        if(root->left==nullptr){
+             return  minDepth(root->right)+1;
+         }else if(root->right==nullptr){
+             return  minDepth(root->left)+1;
+         }
+         return min(minDepth(root->left),minDepth(root->right))+1;
+    }
+};
